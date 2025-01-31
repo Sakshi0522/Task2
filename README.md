@@ -4,6 +4,7 @@
 against a human player. You can use algorithms like Minimax with
 or without Alpha-Beta Pruning to make the AI player unbeatable.**
 
+
 import java.util.Scanner;
 public class TicTacToe {
     //board setup for game representation
