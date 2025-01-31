@@ -16,6 +16,7 @@ public class TicTacToe {
         {EMPTY, EMPTY, EMPTY},
         {EMPTY, EMPTY, EMPTY}
     };
+    
      //main game loop
     public static void main(String[] args) {
         System.out.println("Tic-Tac-Toe: You are 'X', AI is 'O'.");
@@ -41,6 +42,7 @@ public class TicTacToe {
             System.out.println("It's a draw!");
         }
     }
+    
     // Prints the Tic-Tac-Toe Board
     public static void printBoard() {
         for (int i = 0; i < 3; i++) {
@@ -62,6 +64,7 @@ public class TicTacToe {
         }
         return true;
     }
+    
     // Checks if there is a winner
     public static char checkWinner(char[][] board) {
         for (int i = 0; i < 3; i++) {
@@ -96,6 +99,7 @@ public class TicTacToe {
             }
         }
     }
+    
     // AI Makes the Best Move using Minimax
     public static void aiMove() {
         int bestScore = Integer.MIN_VALUE;
@@ -119,6 +123,7 @@ public class TicTacToe {
         board[bestRow][bestCol] = AI;
         System.out.println("AI has made its move!");
     }
+    
     // Minimax Algorithm (without Alpha-Beta Pruning)
     public static int minimax(char[][] board, int depth, boolean isMaximizing) {
         char winner = checkWinner(board);
