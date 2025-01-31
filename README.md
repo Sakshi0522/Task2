@@ -4,7 +4,6 @@
 against a human player. You can use algorithms like Minimax with
 or without Alpha-Beta Pruning to make the AI player unbeatable.**
 
-//java programming for Tic Tac Toe game
 import java.util.Scanner;
 public class TicTacToe {
     //board setup for game representation
@@ -16,8 +15,7 @@ public class TicTacToe {
         {EMPTY, EMPTY, EMPTY},
         {EMPTY, EMPTY, EMPTY}
     };
-
-    //main game loop
+     //main game loop
     public static void main(String[] args) {
         System.out.println("Tic-Tac-Toe: You are 'X', AI is 'O'.");
         printBoard();
@@ -27,7 +25,6 @@ public class TicTacToe {
             if (checkWinner(board) != EMPTY || isFull(board)) {
                 break;
             }
-
             aiMove();
             printBoard();
             if (checkWinner(board) != EMPTY || isFull(board)) {
@@ -43,7 +40,6 @@ public class TicTacToe {
             System.out.println("It's a draw!");
         }
     }
-
     // Prints the Tic-Tac-Toe Board
     public static void printBoard() {
         for (int i = 0; i < 3; i++) {
@@ -54,7 +50,6 @@ public class TicTacToe {
         }
         System.out.println();
     }
-
     // Checks if the board is full (Draw Condition)
     public static boolean isFull(char[][] board) {
         for (char[] row : board) {
@@ -66,7 +61,6 @@ public class TicTacToe {
         }
         return true;
     }
-
     // Checks if there is a winner
     public static char checkWinner(char[][] board) {
         for (int i = 0; i < 3; i++) {
@@ -85,7 +79,6 @@ public class TicTacToe {
         }
         return EMPTY; // No winner yet
     }
-
     // Allows the human player to make a move
     public static void humanMove() {
         Scanner scanner = new Scanner(System.in);
@@ -94,7 +87,6 @@ public class TicTacToe {
             System.out.print("Enter your move (row [0-2] and column [0-2]): ");
             row = scanner.nextInt();
             col = scanner.nextInt();
-
             if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == EMPTY) {
                 board[row][col] = HUMAN;
                 break;
@@ -103,7 +95,6 @@ public class TicTacToe {
             }
         }
     }
-
     // AI Makes the Best Move using Minimax
     public static void aiMove() {
         int bestScore = Integer.MIN_VALUE;
@@ -127,14 +118,12 @@ public class TicTacToe {
         board[bestRow][bestCol] = AI;
         System.out.println("AI has made its move!");
     }
-
     // Minimax Algorithm (without Alpha-Beta Pruning)
     public static int minimax(char[][] board, int depth, boolean isMaximizing) {
         char winner = checkWinner(board);
         if (winner == AI) return 10 - depth;
         if (winner == HUMAN) return depth - 10;
         if (isFull(board)) return 0;
-
         if (isMaximizing) {
             int bestScore = Integer.MIN_VALUE;
             for (int row = 0; row < 3; row++) {
